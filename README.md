@@ -1,5 +1,5 @@
 # SynMusic
-####### A simple music transcriptor and reproducer using SciPy
+###### A simple music transcriptor and reproducer using SciPy
 ## Features
 
 ## Method: From input to outputs
