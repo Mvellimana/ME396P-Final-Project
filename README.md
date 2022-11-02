@@ -1,6 +1,6 @@
 # SynMusic
 _**A simple music transcriptor and reproducer using SciPy**_
-## Features
+## How To Use It!
 
 
 ### Representing Music Visually 
