@@ -4,7 +4,8 @@ _**A simple music transcriptor and reproducer using SciPy**_
 
 ### Representing Music Visually 
 Sheet music is often used to represent the arrangement of pitches and harmonies over time. 
-![Simple Music Notation Elements](https://user-images.githubusercontent.com/20881669/199395416-6974c1b7-cd07-4bba-9284-83ebe0b5c0c2.png)
+
+![Simple Music Notation Elements](https://user-images.githubusercontent.com/20881669/199398114-b406ef6f-548c-4a37-99ca-99a2b33f67b5.png)
 
 #### 
 http://lilypond.org/doc/v2.22/Documentation/learning/simple-notation
