@@ -1,9 +1,9 @@
 # SynMusic
 _**A simple music transcriptor and reproducer using SciPy**_
 ## How To Use It!
-1. Install the Lily music engraving environment 
+#### 1. Install the Lily music engraving environment 
   * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instruction in [Lily Pond website](https://lilypond.org/download.html)
-2. Install the necesary external python packages, more information on their respective documenation websites (listed on our references)
+#### 2. Install the necesary external python packages, more information on their respective documenation websites (listed on our references)
   * Tool and library for manipulating LilyPond files 
     > pip install python-ly
   * A package for sending and receiving MIDI messages easily
