@@ -47,6 +47,18 @@ notes = np.array(["c,,,", "des,,,", "d,,,", "ees,,,", "e,,,", "f,,,", "ges,,,", 
 "c"  , "des"  , "d"  , "ees"  , "e"  , "f"  , "ges"  , "g"  , "aes"  , "a"  , "bes"  , "b"  ,\
 "c'" , "des'" , "d'" , "ees'" , "e'" , "f'" , "ges'" , "g'" , "aes'" , "a'" , "bes'" , "b'" ])
 
+# =============================================================================
+# # Future dictionary
+# octaves = 5; start_freq = 16.35; 
+# # Following equal temperment division of 12 notes per octave
+# freq = [start_freq*2**(i/12) for i in range(octaves*12)] 
+# notes =  ...
+# note_map={}
+# for i in range(octaves*12):
+#     note_map[notes[i]]=[freq[i]]
+# =============================================================================
+    
+
 
 #Windowing info calcs
 bps = bpm/60;
