@@ -1,7 +1,11 @@
 # SynMusic
 _**A simple music transcriptor and reproducer using SciPy**_
 ## How To Use It!
-
+1. Install Nescesary Resources
+  * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instruction in [Lily Pond website](https://lilypond.org/download.html)
+  * Install the following external python packages, more information on their respective documenation websites (listed on our references)
+  > pip install python-ly
+  > pip install py-midi
 
 ### Representing Music Visually 
 Although music is a sonic phenomena, there are multiple ways to suncintly depict it graphically. Sheet music is one of them and it allows to represent the arrangement of pitches over time in staff notation. It uses an array of symbols and codes to precisely (but not necesarly intuitively) convey the fundamental elements of a piece of music, namely, pitch, rythm , dynamics, and timbre.
@@ -23,8 +27,7 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 #### 
 
 ## Dependancies & References
-### Resources 
 Music Engraving Program: [LilyPond](http://lilypond.org/doc/v2.22/Documentation/learning/simple-notation)
+Python Lyli Pond Object Format Package: [python-ly](https://pypi.org/project/python-ly/)
 Python MIDI Communication Package:[py-midi](https://pypi.org/project/py-midi/)
-### References
 Basic of the MIDI Protocol:[MIDI Tutorial](https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html) 
