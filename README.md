@@ -5,9 +5,9 @@ _**A simple music transcriptor and reproducer using SciPy**_
   * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instruction in [Lily Pond website](https://lilypond.org/download.html)
 2. Install the necesary external python packages, more information on their respective documenation websites (listed on our references)
   * Tool and library for manipulating LilyPond files 
-  &emsp;> pip install python-ly
-  * A package for sending and receiving MIDI messages easily.
-  &emsp;> pip install py-midi
+    > pip install python-ly
+  * A package for sending and receiving MIDI messages easily
+    > pip install py-midi
 
 ### Representing Music Visually 
 Although music is a sonic phenomena, there are multiple ways to suncintly depict it graphically. Sheet music is one of them and it allows to represent the arrangement of pitches over time in staff notation. It uses an array of symbols and codes to precisely (but not necesarly intuitively) convey the fundamental elements of a piece of music, namely, pitch, rythm , dynamics, and timbre.
