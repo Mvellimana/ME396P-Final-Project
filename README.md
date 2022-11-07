@@ -32,8 +32,8 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 The goal is to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display an animated sheet music that highlights the notes that are currently played.
 
 Packages used :- 
- >Tkinter (to create the music player interface)
- >Pygame (to control audio file)
+ * Tkinter (to create the music player interface)
+ * Pygame (to control audio file)
  
 ## Dependancies & References
 - Music Engraving Program: [LilyPond](http://lilypond.org/doc/v2.22/Documentation/learning/simple-notation)
