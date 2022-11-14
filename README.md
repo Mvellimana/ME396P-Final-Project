@@ -32,10 +32,10 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 ### Creating a Music Player GUI
 The goal is to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display an animated sheet music that highlights the notes that are currently played.
 
-## Dependancies :- 
- * [Tkinter](https://docs.python.org/3/library/tkinter.html): to create the music player interface
- * [Pygame](https://www.pygame.org/wiki/about): to control audio file
- * [MIDIUtil](https://pypi.org/project/MIDIUtil/): to save MIDI file
+## Dependancies :
+ - [Tkinter](https://docs.python.org/3/library/tkinter.html): to create the music player interface
+ - [Pygame](https://www.pygame.org/wiki/about): to control audio file
+ - [MIDIUtil](https://pypi.org/project/MIDIUtil/): to save MIDI file
  
 ##  References
 - Music Engraving Program: [LilyPond](http://lilypond.org/doc/v2.22/Documentation/learning/simple-notation)
