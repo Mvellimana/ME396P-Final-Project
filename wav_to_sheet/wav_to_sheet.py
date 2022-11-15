@@ -5,11 +5,7 @@ Created on Mon Oct 24 20:17:32 2022
 
 @author: dantegarcia
 """
-# from mingus.containers import Note
-# from mingus.containers import NoteContainer
-# from mingus.containers import Bar
-#import subprocess
-#import os
+
 import mingus.extra.lilypond as lilypond
 from scipy.io import wavfile
 from scipy import signal
@@ -196,8 +192,10 @@ def WavToSheet(filename):
     lilypond.to_png(bar2, "bar2test")
     
     
-    import TestingFunction as tf
+    total_lines = int(len(notes_to_play_8)/16)
+    seconds_per_line = 8*60/bpm
     
-    c = tf.myFunc(2)
-    print(c)
-
+    # This file also creates a png/pdf of sheet music and a midi file
+    # It requires the input of a wav file, and two .txt files that contain lilypond info
+    
+    return str_notes, total_lines, seconds_per_line
