@@ -6,8 +6,9 @@ _**A simple music transcriptor and reproducer using SciPy**_
 #### 2. Install the necesary external python packages, more information on their respective documenation websites (listed on our references)
   * Tool and library for manipulating LilyPond files 
     > pip install python-ly
-  * A package for sending and receiving MIDI messages easily
-    > pip install py-midi
+  * Package for creating MIDI format files 
+    > pip install MIDIUtil
+  
 
 ### Representing Music Visually 
 Although music is a sonic phenomena, there are multiple ways to suncintly depict it graphically. Sheet music is one of them and it allows to represent the arrangement of pitches over time in staff notation. It uses an array of symbols and codes to precisely (but not necesarly intuitively) convey the fundamental elements of a piece of music, namely, pitch, rythm , dynamics, and timbre.
@@ -28,8 +29,17 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 #### Rythmic Patterns
 #### 
 
-## Dependancies & References
+### Creating a Music Player GUI
+The goal is to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display an animated sheet music that highlights the notes that are currently played.
+
+## Dependancies :
+ - [Tkinter](https://docs.python.org/3/library/tkinter.html): to create the music player interface
+ - [Pygame](https://www.pygame.org/wiki/about): to control audio file
+ - [MIDIUtil](https://pypi.org/project/MIDIUtil/): to save MIDI file
+ 
+##  References
 - Music Engraving Program: [LilyPond](http://lilypond.org/doc/v2.22/Documentation/learning/simple-notation)
 - Python Lyli Pond Object Format Package: [python-ly](https://pypi.org/project/python-ly/)
-- Python MIDI Communication Package: [py-midi](https://pypi.org/project/py-midi/)
 - Basic of the MIDI Protocol: [MIDI Tutorial](https://www.cs.cmu.edu/~music/cmsip/readings/MIDI%20tutorial%20for%20programmers.html) 
+- Notes to Midi Note Mapping: [Midi Note Numbers and Center Frequencies](https://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies)
+
