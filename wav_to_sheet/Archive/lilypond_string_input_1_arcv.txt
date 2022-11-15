@@ -19,5 +19,8 @@
                            (set! total (+ total (car working-copy))))))))))))
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\header{
-  title = "
+
+myMusic = {
+  \numericTimeSignature
+  \override Staff.Clef.space-alist.time-signature = #'(extra-space . 0)
+    

@@ -21,7 +21,7 @@ def WavToSheet(filename):
     bpw = 1/2; # input*1/4 = lost res note length if 1 beat per window, each window is 1/4 note (in 4/4), for now. so, only able to look at 1/4 beats or longer. need to try this for 1/8, 1/16, etc.
     bpm = 120; #specify beats per minute
     
-    song_title = Path(filename).name[0:-4]
+    song_title = Path(filename).name
     print(song_title)
     
     def find_nearest(array, value):
@@ -192,8 +192,8 @@ def WavToSheet(filename):
         str3 = f.read()
         
     bar2 = str1 + song_title + str2 + str_notes + str3
-    lilypond.to_pdf(bar2, "bar2test")
-    lilypond.to_png(bar2, "bar2test")
+    # lilypond.to_pdf(bar2, "bar2test")
+    # lilypond.to_png(bar2, "bar2test")
     
     
     total_lines = int(len(notes_to_play_8)/16)
@@ -202,4 +202,4 @@ def WavToSheet(filename):
     # This file also creates a png/pdf of sheet music and a midi file
     # It requires the input of a wav file, and two .txt files that contain lilypond info
     
-    return str_notes, total_lines, seconds_per_line, note_dict, bar2, bpm
+    return str_notes, total_lines, seconds_per_line, note_dict, bar2

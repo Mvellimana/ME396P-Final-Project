@@ -6,10 +6,8 @@ Created on Tue Nov 15 14:35:25 2022
 @author: dantegarcia
 """
 
-def myFunc(a):
-    b = a + 1
-    return b
-
 import wav_to_sheet as ws
 
-ws.WavToSheet('Mario_Guitar_120bpm_5.wav')
+str_notes, total_lines, seconds_per_line, note_dict, bar2, bpm = \
+    ws.WavToSheet('Mario_Guitar_120bpm_5.wav')
+    

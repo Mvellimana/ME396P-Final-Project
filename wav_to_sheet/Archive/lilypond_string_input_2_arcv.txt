@@ -1,0 +1,22 @@
+
+}
+
+\score {
+  \new Staff { 
+    \once\override Score.RehearsalMark.self-alignment-X = #LEFT
+    \myMusic 
+  }
+  \midi { }
+  \layout {
+    \context {
+      \Score
+      %use the line below to insist on your layout
+      \override NonMusicalPaperColumn.line-break-permission = ##f
+      \consists #(bars-per-line-engraver '(2))
+      proportionalNotationDuration = #(ly:make-moment 1/8)
+      \override SpacingSpanner.strict-note-spacing = ##t
+      \override SpacingSpanner.uniform-stretching = ##t
+    }
+	indent = 0.0
+  }
+}
