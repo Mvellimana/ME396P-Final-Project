@@ -19,10 +19,10 @@ import matplotlib.pyplot as plt
 
 
 # INPUTS
-filename = 'Mario_Guitar_100bpm_1.wav'
+filename = 'Mario_Guitar_120bpm_5.wav'
 fs, data = wavfile.read(filename) #Mario_Guitar_100bpm_1
 bpw = 1/2; # input*1/4 = lost res note length if 1 beat per window, each window is 1/4 note (in 4/4), for now. so, only able to look at 1/4 beats or longer. need to try this for 1/8, 1/16, etc.
-bpm = 100; #specify beats per minute
+bpm = 120; #specify beats per minute
 
 song_title = 'filename'
 
