@@ -192,8 +192,8 @@ def WavToSheet(filename):
         str3 = f.read()
         
     bar2 = str1 + song_title + str2 + str_notes + str3
-    lilypond.to_pdf(bar2, "bar2test")
-    lilypond.to_png(bar2, "bar2test")
+    lilypond.to_pdf(bar2, filename.split('.wav')[0]+'SheetMusic')
+    #lilypond.to_png(bar2, "bar2test")
     
     
     total_lines = int(len(notes_to_play_8)/16)
