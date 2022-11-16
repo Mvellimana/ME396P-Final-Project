@@ -70,17 +70,14 @@ def save2midi(sequence, filename, tempo = 60):
         MyMIDI.writeFile(output_file)
         
 
-
 def playMidiFile(filename):
     pygame.mixer.init()
-    pygame.mixer.music.load('MidiFileTest.midi')
+    pygame.mixer.music.load(filename)
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():
-        print('Still playing :)')
-        time.sleep(1)
+        pass      
         
 save2midi([64, 64, 64, 0, 60, 64, 67, 55],'MidiFileTest')
 
-playMidiFile('MidiFileTest')
-
+#playMidiFile('MidiFileTest')
 #connectSynth()
