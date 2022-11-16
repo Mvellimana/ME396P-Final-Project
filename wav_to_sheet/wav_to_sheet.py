@@ -15,14 +15,12 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 def WavToSheet(filename):
-    # INPUTS
-    #filename = 'Mario_Guitar_120bpm_5.wav'
+    
     fs, data = wavfile.read(filename) #Mario_Guitar_100bpm_1
     bpw = 1/2; # input*1/4 = lost res note length if 1 beat per window, each window is 1/4 note (in 4/4), for now. so, only able to look at 1/4 beats or longer. need to try this for 1/8, 1/16, etc.
     bpm = 120; #specify beats per minute
     
     song_title = Path(filename).name[0:-4]
-    print(song_title)
     
     def find_nearest(array, value):
         array = np.asarray(array)
@@ -50,7 +48,7 @@ def WavToSheet(filename):
     # =============================================================================
         
     
-    #Windowing info calcs
+    # Windowing info calculations
     bps = bpm/60;
     window_length = round(fs/bps*bpw);
     n_wndws = len(data)//window_length
@@ -68,6 +66,7 @@ def WavToSheet(filename):
     max_freq_mag = np.amax(Sxx_dB, axis=0)
     max_mag = max(max_freq_mag)
     
+    # Finding which note is played per every 1/8 note section
     note_f_val = np.array([], dtype=np.uint32)
     note_f_idx = np.array([], dtype=np.uint32)
     for ii,jj in enumerate(max_freq_per_wndw):
@@ -76,11 +75,11 @@ def WavToSheet(filename):
         note_f_val = np.append(note_f_val,val)
             
             
-    
+    # Saving original list of 8 notes, and creating a new list to update
     notes_to_play_8 = notes[note_f_idx]
     notes_to_play = notes_to_play_8.copy()
     
-            
+    # Differentiating between notes and rests by relative gain      
     for i,val in enumerate(notes_to_play):
         if max_freq_mag[i] <= max_mag - 33:
             notes_to_play[i] = 'r'
@@ -90,7 +89,7 @@ def WavToSheet(filename):
     
     
     # Creating lists that contain the index locations of rest groups and the number of rests in the group
-    # There has to be a better way to do this!
+    # There has to be a better way to do this, but it works!
     rest_idx_lst = [i for i,val in enumerate(notes_to_play) if val == 'r8'] 
     rest_idx_lst_tmp = rest_idx_lst.copy()
     rest_grp_idx_lst,rests_in_grp_lst = [],[]
@@ -112,10 +111,12 @@ def WavToSheet(filename):
     
     # Handles when there are rest groups more than three 8th notes long
     # This creates rest groups of only 3 8th's or lower
+    # The purpose of this is to group r8's so that there not litter all over the sheet
+    # to improve readability
     for i,ival in enumerate(rests_in_grp_lst):
         if ival > 3:
-            x,y = ival//3,ival%3 # floor, remainder
-            elements_to_add = x
+            # floor, remainder
+            x,y = ival//3,ival%3 
             rests_in_grp_lst[i] = 3
             for j in range(0,x):
                 rest_grp_idx_lst.insert(i+j+1,rest_grp_idx_lst[i+j]+3)
@@ -124,11 +125,12 @@ def WavToSheet(filename):
                 else:
                     rests_in_grp_lst.insert(i+j+1,3)    
     
-    #rest_grp_idx_lst, rests_in_grp_lst
     
-    #Handling rests
+    #Handling rests, converting to quarter-rests or notes when necessary
+    #This is optimizes readability for 4/4 time signature
     for ii,ival in enumerate(rest_grp_idx_lst):
-        if ival%2: # if the index is odd
+        # if the index is odd
+        if ival%2: 
             if rests_in_grp_lst[ii] == 1:
                 notes_to_play[ival-1] = notes_to_play[ival-1][0:-1] + '4'
                 notes_to_play[ival] = 'remove'
@@ -140,7 +142,8 @@ def WavToSheet(filename):
                 notes_to_play[ival] = 'remove'
                 notes_to_play[ival+1] = 'remove'
                 notes_to_play[ival+2] = notes_to_play[ival+2][0:-1] + '4'
-        else: # if the index is even
+         # if the index is even
+        else:
             if rests_in_grp_lst[ii] == 2:
                 notes_to_play[ival] = 'remove'
                 notes_to_play[ival+1] = notes_to_play[ival+1][0:-1] + '4'
@@ -183,23 +186,31 @@ def WavToSheet(filename):
     
     str_notes = ' '.join(np.array(notes_to_play))
     
-    # Testing txt file input for lilypond string
+    # .txt string inputs for lilypond command
     with open("lilypond_string_input_1.txt","r") as f:
         str1 = f.read()
     with open("lilypond_string_input_2.txt","r") as f:
         str2 = f.read()
     with open("lilypond_string_input_3.txt","r") as f:
         str3 = f.read()
+    with open("lilypond_string_input_4.txt","r") as f:
+        str4 = f.read()
         
-    bar2 = str1 + song_title + str2 + str_notes + str3
-    lilypond.to_pdf(bar2, filename.split('.wav')[0]+'SheetMusic')
-    #lilypond.to_png(bar2, "bar2test")
+    bar = str1 + song_title + str2 + str_notes + str3 + str(bpm) + str4
+    lilypond.to_pdf(bar, song_title+'SheetMusic')
+    #lilypond.to_png(bar2, "bar2test") for a png output
     
     
     total_lines = int(len(notes_to_play_8)/16)
     seconds_per_line = 8*60/bpm
     
-    # This file also creates a png/pdf of sheet music and a midi file
-    # It requires the input of a wav file, and two .txt files that contain lilypond info
+    return str_notes, total_lines, seconds_per_line, note_dict, bar, bpm
+
+    # This function creates a png/pdf of sheet music and a midi file in your directory
+    # It requires the input of a wav file, and four .txt files that contain lilypond info
     
-    return str_notes, total_lines, seconds_per_line, note_dict, bar2, bpm
+    
+    
+    
+    
+    
