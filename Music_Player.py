@@ -7,6 +7,7 @@ Created on Tue Nov 15 19:52:11 2022
 """
 
 from wav_to_sheet import WavToSheet
+from play_main import playMidiFile
 from tkinter import *
 from pygame import mixer
 from tkinter import Label
@@ -16,6 +17,9 @@ from PIL import ImageTk, Image
 from pdf2image import convert_from_path
 import os
 import librosa
+import time
+from midiutil import MIDIFile
+import pygame.midi
 #import time
 
 os.chdir('/Users/Mai/Documents/ME396P/Final Project')
@@ -49,7 +53,7 @@ def upload():
     '''
     Converts audio to sheet music & crops sheet music to separate images
     '''
-    global music_file, audio_length
+    global music_file, audio_length, midi_file
     running_song['text'] = 'Loading'
     
     
@@ -85,7 +89,9 @@ def upload():
         
     running_song['text'] = 'Loaded'
     audio_length = librosa.get_duration(filename=music_file.split('/')[-1])
-    return music_file, audio_length
+    midi_file = Sheet_music.split('.pdf')[0]+'.midi' 
+    print(midi_file)
+    return music_file, audio_length, midi_file
         
 
 def play(music_file): 
@@ -128,7 +134,7 @@ def display():
 def pause():
     '''Pauses audio file 
     '''
-    global playing_state
+    global playing_state, midi_file
     mixer.music.pause()
     playing_state = False 
 
@@ -139,11 +145,19 @@ def resume():
     mixer.music.unpause()
     playing_state = True
     
+def play_midi():
+    global midi_file
+    #global running_song
+    playMidiFile(midi_file)
+    running_song['text'] = midi_file
+    
+    
 #initializing variables
 music_file = ''
 playing_state = False
 i = 0
 audio_length = 0
+midi_file = ''
 
 #Buttons
 Upload_img = Image.open('Icons/upload.png') 
@@ -173,8 +187,8 @@ Resume_button.place(x = (1500/8)*7, y = 50, anchor ='center')
 Sheet_frame = Label(top_frame, height = 200)
 Sheet_frame.place(x = 1500/2, y = 100, anchor ='center') 
 
-Play_to_external_device = Button(middle_frame, text = ('Play to External Device'), font=("Arial",30),fg = 'black')
-Play_to_external_device.place(x = 1500/2, y = 50, anchor ='center')
+Play_to_generated_midi = Button(middle_frame, text = ('Play Generated Midi'), font=("Arial",30),fg = 'black', command = play_midi)
+Play_to_generated_midi.place(x = 1500/2, y = 50, anchor ='center')
 
 running_song = Label(bottom_frame_text,text ='Load',font=("Arial",25) ,fg = 'black')
 running_song.place(x = (1500/2), y = 20, anchor ='center')
