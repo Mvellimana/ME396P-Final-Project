@@ -11,7 +11,7 @@ import pygame.midi
 
 def playMidiFile(filename):
     pygame.mixer.init()
-    pygame.mixer.music.load('MidiFileTest.midi')
+    pygame.mixer.music.load(filename)
     pygame.mixer.music.play()
 
 def pauseInstrument():
