@@ -75,9 +75,7 @@ def WavToSheet(filename):
         note_f_val = np.append(note_f_val,val)
             
             
-    # Saving original list of 8 notes, and creating a new list to update
-    notes_to_play_8 = notes[note_f_idx]
-    notes_to_play = notes_to_play_8.copy()
+    notes_to_play = notes[note_f_idx]
     
     # Differentiating between notes and rests by relative gain      
     for i,val in enumerate(notes_to_play):
@@ -85,7 +83,11 @@ def WavToSheet(filename):
             notes_to_play[i] = 'r'
             
     notes_to_play = [i+'8' for i in notes_to_play]
-    notes_to_play.extend(['r8']*(len(notes_to_play)%8))
+    if len(notes_to_play)%8:
+        notes_to_play.extend(['r8']*(8-len(notes_to_play)%8))
+    
+    # Saving off a list of 1/8 notes to play
+    notes_to_play_8 = notes_to_play.copy()
     
     
     # Creating lists that contain the index locations of rest groups and the number of rests in the group
