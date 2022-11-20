@@ -1,5 +1,6 @@
 # SynMusic
-_**A simple music transcriptor and reproducer using SciPy**_
+_**A simple music transcriptor and reproducer**_
+
 ## How To Use It!
 #### 1. Install the Lily music engraving environment 
   * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instruction in [Lily Pond website](https://lilypond.org/download.html)
@@ -32,6 +33,20 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 ### Creating a Music Player GUI
 The goal is to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display an animated sheet music that highlights the notes that are currently played.
 
+## Music Play GUI Functionalities
+GUI contains load, play, pause, resume and 'play generated music' buttons.  
+Load - Opens a dialog box to select desired input audio wav file. And once selected, converts it to sheet music.  
+Play - Plays the input audio file, while displaying the sheet music that shows the notes being played  
+Pause - Pauses input audio file  
+Resume - Resume input audio file  
+Play Generated Music - Plays output midi music file   
+
+## Repository Structure
+ * Music_Player.py - Main script to run, produces a gui to convert audio input file to sheet music and midi file. (Change directory in script to wav_to_sheet folder based on your local directory)
+ * wav_to_sheet folder - contains all files required to run wav_to_sheet.py script, that is used by Music_Player.py scipt to produce sheet music
+ * play_main.py - Scipt to run output midi file in internal device
+ * play_external.py - Scipt to run output midi file in external device
+ 
 ## Dependancies :
  - [Tkinter](https://docs.python.org/3/library/tkinter.html): to create the music player interface
  - [Pygame](https://www.pygame.org/wiki/about): to control audio file
