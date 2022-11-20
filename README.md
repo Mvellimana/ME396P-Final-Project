@@ -1,7 +1,7 @@
 # SynMusic
 _**A simple music transcriptor and reproducer**_
 
-##Packages used
+## Packages used
 
 Numpy  
 Scipy - Scipy.io, Scipy.signal  
