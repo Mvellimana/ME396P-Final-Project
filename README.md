@@ -1,6 +1,17 @@
 # SynMusic
 _**A simple music transcriptor and reproducer**_
 
+##Packages used
+
+Numpy  
+Scipy - Scipy.io, Scipy.signal  
+Lilypond  
+Tkinter    
+Pygame - Pygame.mixer, Pygame.midi  
+Librosa  
+PIL  
+pdf2image  
+
 ## How To Use It!
 #### 1. Install the Lily music engraving environment 
   * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instruction in [Lily Pond website](https://lilypond.org/download.html)
