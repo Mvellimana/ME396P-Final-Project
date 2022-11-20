@@ -46,6 +46,7 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 The goal is to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display an animated sheet music that highlights the notes that are currently played.
 
 ## Music Play GUI Functionalities
+![GUI Image](Images/GUI.png)  
 GUI contains load, play, pause, resume and 'play generated music' buttons.  
 Load - Opens a dialog box to select desired input audio wav file. And once selected, converts it to sheet music.  
 Play - Plays the input audio file, while displaying the sheet music that shows the notes being played  
