@@ -6,8 +6,10 @@ _**A simple music transcriptor and reproducer**_
 #### 1. Install the Lily music engraving environment 
   * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instruction in [Lily Pond website](https://lilypond.org/download.html)
 #### 2. Install the necesary external python packages, more information on their respective documenation websites (listed on our references)
-  * Tool and library for manipulating LilyPond files 
+  * Package for communicating with the Lilypond application
     > pip install python-ly
+  * Tool and library for manipulating LilyPond files 
+    > pip install mingus
   * Package for creating MIDI format files 
     > pip install MIDIUtil
   
