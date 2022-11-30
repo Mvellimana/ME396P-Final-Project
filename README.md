@@ -1,14 +1,7 @@
 # SynMusic
 _**A simple music transcriptor and reproducer**_
 ![image](https://user-images.githubusercontent.com/20881669/204862511-7b64966e-dd5b-43d5-8e9f-26f672b4a755.png)
-
-## Packages used
-Read Audio stream - SciPy.io  
-Detect notes - SciPy.signal, numpy  
-Convert to music notation - SciPy.signal, Lilypond  
-Creating a user interface - Tkinter, Pygame, Librosa, PIL, pdf2image  
-Communicating to external device - Pygame.midi  
- 
+   
 ## How To Use It!
 #### 1. Install the Lily music engraving environment 
   * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instruction in [Lily Pond website](https://lilypond.org/download.html)
@@ -26,8 +19,6 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 
 
 ![Simple Music Notation Elements](https://user-images.githubusercontent.com/20881669/199398114-b406ef6f-548c-4a37-99ca-99a2b33f67b5.png)
-
-
 
 ### Playing to an Electronic Musical Instrument
 #### MIDI Communication
@@ -56,9 +47,12 @@ Play Generated Music - Plays output midi music file
  * play_main.py - Scipt to run output midi file in internal device
  * play_external.py - Scipt to run output midi file in external device
  
-## Dependancies :
- - [Tkinter](https://docs.python.org/3/library/tkinter.html)
- - [Pygame](https://www.pygame.org/wiki/about)
+## Dependancies and Packages:
+Read Audio stream - SciPy.io  
+Detect notes - SciPy.signal, numpy  
+Convert to music notation - SciPy.signal, Lilypond  
+Creating a user interface - [Tkinter](https://docs.python.org/3/library/tkinter.html), [Pygame](https://www.pygame.org/wiki/about), Librosa, PIL, pdf2image  
+Communicating to external device - [Pygame.midi](https://www.pygame.org/docs/ref/midi.html)
  
 ##  References
 - Music Engraving Program: [LilyPond](http://lilypond.org/doc/v2.22/Documentation/learning/simple-notation)
