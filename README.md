@@ -45,7 +45,7 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 #### MIDI Communication
 
 ## How to Use: Music Player GUI
-Our goal was to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display animated sheet music that highlights the notes while they are played.
+Our goal was to create a GUI that can control the audio input and output (with play, pause, and resume buttons) and to display animated sheet music that highlights the notes while they are played.
 
 ### Music Play GUI Functionalities 
 ![GUI Image](Images/GUI.png)  
