@@ -41,20 +41,20 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
    - Readability Examples: If a rest comes after a note that is first or third in the measure, the tool will change the previous note from a 1/8 to a 1/4 note. If there two 1/8-rests to begin or end a measure, these will merge into one 1/4-rest. The music would still technically be accurate without edits like these, but it makes it much easier to understand for the user.
 #### 
 
-### Playing to an Electronic Musical Instrument
+### Recreating and Playing Your Music from Your Computer or MIDI Instrument
 #### MIDI Communication
 
-## Creating a Music Player GUI
+## Music Player GUI
 The goal is to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display an animated sheet music that highlights the notes that are currently played.
 
 ### Music Play GUI Functionalities 
 ![GUI Image](Images/GUI.png)  
 GUI contains load, play, pause, resume and 'play generated music' buttons.  
-Load - Opens a dialog box to select desired input audio wav file. And once selected, converts it to sheet music.  
-Play - Plays the input audio file, while displaying the sheet music that shows the notes being played  
-Pause - Pauses input audio file  
-Resume - Resume input audio file  
-Play Generated Music - Plays output midi music file   
+Load - Uploads and processes audio. This opens a dialog box to select desired input audio wav file. Once file is selected, the tool converts it to sheet music and a MIDI file.  
+Play - Plays the input audio file, while displaying the sheet music that shows the notes being played.
+Pause - Pauses input audio file.  
+Resume - Resume input audio file.  
+Play Generated Music - Plays output midi music file.   
 
 ## Repository Structure
  * Music_Player.py - Main script to run, produces a gui to convert audio input file to sheet music and midi file. (Change directory in script to wav_to_sheet folder based on your local directory)
