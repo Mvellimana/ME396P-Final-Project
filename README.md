@@ -1,13 +1,8 @@
 # SynMusic
 _**A simple music transcriptor and reproducer**_
-
-## Objective
-Create a Music Player GUI that transcribes music from instrumental audio and plays to external device
 ![image](https://user-images.githubusercontent.com/20881669/204862511-7b64966e-dd5b-43d5-8e9f-26f672b4a755.png)
 
-
 ## Packages used
-
 Read Audio stream - SciPy.io  
 Detect notes - SciPy.signal, numpy  
 Convert to music notation - SciPy.signal, Lilypond  
