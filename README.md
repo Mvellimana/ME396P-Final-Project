@@ -23,7 +23,7 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
     > pip install MIDIUtil
   
 
-## How it Works!
+## How it Works
 ### Signal Processing: Note Recognition and Music Transcription from an Audio File
 #### Pitch and Octave range
  * To identify the pitch of the notes, we are taking a spectrogram of the audio sample. This will divide the signal into a set of time intervals, and will generate the frequency spectrum for each interval. We can then find the maximum magnitude and corresponding frequency for each time interval. Lastly, we can map these frequencies with a musical note.
@@ -44,8 +44,8 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 ### Recreating and Playing Your Music from Your Computer or MIDI Instrument
 #### MIDI Communication
 
-## Music Player GUI
-The goal is to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display an animated sheet music that highlights the notes that are currently played.
+## How to Use: Music Player GUI
+Our goal was to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display animated sheet music that highlights the notes while they are played.
 
 ### Music Play GUI Functionalities 
 ![GUI Image](Images/GUI.png)  
