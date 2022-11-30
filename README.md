@@ -7,9 +7,9 @@ _**A simple music transcriptor and reproducer**_
   * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instruction in [Lily Pond website](https://lilypond.org/download.html)
 #### 2. Install the necesary external python packages, more information on their respective documenation websites (listed on our references)
   * Package for communicating with the Lilypond application
-    > pip install python-ly
-  * Tool and library for manipulating LilyPond files 
     > pip install mingus
+  * Tool and library for manipulating LilyPond files 
+    > pip install python-ly
   * Package for creating MIDI format files 
     > pip install MIDIUtil
   
