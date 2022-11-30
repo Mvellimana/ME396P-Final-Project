@@ -29,7 +29,18 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 ## Signal Processing: From input to outputs
 ### Identifying Musical Elements
 #### Pitch and Octave range
+ * To identify the pitch of the notes, we are taking a spectrogram of the audio sample. This will divide the signal into a set of time intervals, and will generate the frequency spectrum for each interval. We can then find the maximum magnitude and corresponding frequency for each time interval. Lastly, we can map these frequencies with a musical note.
+ * Limitations:
+  - Our tool only transcribes in treble clef notation.
+  - Our tool can only identify single notes in the first 5 octaves. When trying to identify notes in the higher octaves, we were running into issues with harmonics. More advanced processing is required to analyze high-pitch notes and chords.
 #### Rythmic Patterns
+ * The time interval used for the spectrogram is set to the time legnth of a 1/8-note. Using a smaller time window lowers the resolution of the FFT, and makes it difficult to accurately identify notes.
+ * When testing, we only used .wav files with a sampling rate of 44.1 kHz (standard for .wav files).
+ * To identify when a note is played (versus when there is no note played), we compared the magnitude of each time interval to the maximum magnitude (loudest note) in the audio file. After testing, we settled on a threshold, in decibels, to determine if a note was being played in that interval.
+ * We assumed that the tempo of the audio is 120 BPM. However, BPM input is a feasible feature that we could include in the GUI, if we'd like to upload music played at a different templ
+ * The tool assumes that the musician only plays 1/8 notes. This is due to the difficulty in differentiating between sustained notes and double notes.
+ * The tool is only writes music in 4/4 time signature. We have also optimized readability for 4/4. 
+  - Examples: If a rest comes after a note that is first or third in the measure, the tool will change the previous note from a 1/8 to a 1/4 note. If there two 1/8-rests to begin or end a measure, these will merge into one 1/4-rest. The music would still technically be accurate without edits like these, but it makes it much easier to understand for the user.
 #### 
 
 ### Creating a Music Player GUI
