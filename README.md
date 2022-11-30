@@ -12,7 +12,7 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 
 ## What You Need Before Using the Tool
 #### 1. Install the Lily music engraving environment 
-  * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instruction in [Lily Pond website](https://lilypond.org/download.html)
+  * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instructions on the [Lily Pond website](https://lilypond.org/download.html).
    * IMPORTANT: If you are using a Mac or PC, be sure to follow the instructions under "Running on the command-line". This is on the webpage after you select your operating system when downloading.
 #### 2. Install the necesary external python packages, more information on their respective documenation websites (listed on our references)
   * Package for communicating with the Lilypond application
@@ -23,11 +23,8 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
     > pip install MIDIUtil
   
 
-### Playing to an Electronic Musical Instrument
-#### MIDI Communication
-
-## Signal Processing: From input to outputs
-### Identifying Musical Elements
+## How it Works!
+### Signal Processing: Note Recognition and Music Transcription from an Audio File
 #### Pitch and Octave range
  * To identify the pitch of the notes, we are taking a spectrogram of the audio sample. This will divide the signal into a set of time intervals, and will generate the frequency spectrum for each interval. We can then find the maximum magnitude and corresponding frequency for each time interval. Lastly, we can map these frequencies with a musical note.
  * Limitations:
@@ -44,10 +41,13 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
    - Readability Examples: If a rest comes after a note that is first or third in the measure, the tool will change the previous note from a 1/8 to a 1/4 note. If there two 1/8-rests to begin or end a measure, these will merge into one 1/4-rest. The music would still technically be accurate without edits like these, but it makes it much easier to understand for the user.
 #### 
 
-### Creating a Music Player GUI
+### Playing to an Electronic Musical Instrument
+#### MIDI Communication
+
+## Creating a Music Player GUI
 The goal is to create a GUI that can control the audio input and output (with play, pause , resume buttons) and to display an animated sheet music that highlights the notes that are currently played.
 
-## Music Play GUI Functionalities 
+### Music Play GUI Functionalities 
 ![GUI Image](Images/GUI.png)  
 GUI contains load, play, pause, resume and 'play generated music' buttons.  
 Load - Opens a dialog box to select desired input audio wav file. And once selected, converts it to sheet music.  
