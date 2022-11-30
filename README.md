@@ -3,6 +3,7 @@ _**A simple music transcriptor and reproducer**_
 
 ## Objective
 Create a Music Player GUI that transcribes music from instrumental audio and plays to external device
+![image](https://user-images.githubusercontent.com/20881669/204862511-7b64966e-dd5b-43d5-8e9f-26f672b4a755.png)
 
 
 ## Packages used
@@ -61,9 +62,8 @@ Play Generated Music - Plays output midi music file
  * play_external.py - Scipt to run output midi file in external device
  
 ## Dependancies :
- - [Tkinter](https://docs.python.org/3/library/tkinter.html): to create the music player interface
- - [Pygame](https://www.pygame.org/wiki/about): to control audio file
- - [MIDIUtil](https://pypi.org/project/MIDIUtil/): to save MIDI file
+ - [Tkinter](https://docs.python.org/3/library/tkinter.html)
+ - [Pygame](https://www.pygame.org/wiki/about)
  
 ##  References
 - Music Engraving Program: [LilyPond](http://lilypond.org/doc/v2.22/Documentation/learning/simple-notation)
