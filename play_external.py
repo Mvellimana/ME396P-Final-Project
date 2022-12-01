@@ -45,6 +45,9 @@ class MidiSequence:
         self.midi_sequence = [[] for i in range(self.polyphony)]
         
     def notes2sequence(self, notes_str = Mario_Sequence_LP, voice = 1, time_signature = '4/4', **kwargs):
+        if notes_str == []:
+            notes_str = Mario_Sequence_LP
+        
         voice -= 1 
         parsed_notes = notes_str.split(' ')
         for item in parsed_notes:
@@ -99,6 +102,8 @@ class MidiSequence:
        
 def connectSynth():
     pygame.midi.init()
+    print("\n\nConnecting to External Synthesizer")
+    print("Is dangerous to play alone, choose a synth to give you some company\n")
     # print the devices and use the last output port.
     for i in range(pygame.midi.get_count()):
         (interf,name,is_input,is_output,is_opened) = pygame.midi.get_device_info(i)
@@ -111,10 +116,11 @@ def connectSynth():
     
     return midi_out  
 
+def disconnectSynth():
+    # make sure synth is not already oppened from a previous instance
+    pygame.midi.quit()
+
 def playSynth():
-    pass
-       
-def closeSynth():
     pass
     
 def printMessage(n,f):
@@ -124,48 +130,32 @@ def printMessage(n,f):
     console_output = 'Note On: '+ on + 'Note Off :' + off
     print(console_output)
 
-MarioLick = MidiSequence()
-MarioLick.notes2sequence()
-a=MarioLick.getSequence()
-
-Synth = connectSynth()
-bpm = 120; bps = bpm/60; sps = bps/smallest_subdivision
-for i in range(len(a[0])):
-    (NoteON,NoteOFF) = MarioLick.getNote(i)
-    printMessage(NoteON,NoteOFF) 
-    if NoteON:
-        Synth.note_on(note=NoteON, velocity=127)
-    if NoteOFF:
-        Synth.note_off(note=NoteOFF, velocity=127)
-    time.sleep(sps)
-
-bpm = 60; bps = bpm/60; sps = bps/smallest_subdivision
-for i in range(len(a[0])):
-    (NoteON,NoteOFF) = MarioLick.getNote(i)
-    printMessage(NoteON,NoteOFF) 
-    if NoteON:
-        #pass
-        Synth.note_on(note=NoteON, velocity=127)
-    if NoteOFF:
-        #pass
-        Synth.note_off(note=NoteOFF, velocity=127)
-    time.sleep(sps)
-
+# Sample Use with Default Hardcoded Song
 # =============================================================================
-# t_start = time.time()
-# t = 0 
-#  
-# while t < 10:
-#     if int(t % ssd) == 0:
-#         T_sample = t//ssd
-#         (NoteON,NoteOFF) = MarioLick.getNote(T_sample)
-#         if NoteON:
-#             Synth.note_on(note=NoteON, velocity=127)
-#         if NoteOFF:
-#             Synth.note_off(note=NoteOFF, velocity=127)
-#         print(t); 
-#     t = time.time() - t_start
-#       
+# MarioLick = MidiSequence()
+# MarioLick.notes2sequence()
+# a=MarioLick.getSequence()
 # 
+# Synth = connectSynth()
+# bpm = 120; bps = bpm/60; sps = bps/smallest_subdivision
+# for i in range(len(a[0])):
+#     (NoteON,NoteOFF) = MarioLick.getNote(i)
+#     printMessage(NoteON,NoteOFF) 
+#     if NoteON:
+#         Synth.note_on(note=NoteON, velocity=127)
+#     if NoteOFF:
+#         Synth.note_off(note=NoteOFF, velocity=127)
+#     time.sleep(sps)
+# 
+# bpm = 60; bps = bpm/60; sps = bps/smallest_subdivision
+# for i in range(len(a[0])):
+#     (NoteON,NoteOFF) = MarioLick.getNote(i)
+#     printMessage(NoteON,NoteOFF) 
+#     if NoteON:
+#         #pass
+#         Synth.note_on(note=NoteON, velocity=127)
+#     if NoteOFF:
+#         #pass
+#         Synth.note_off(note=NoteOFF, velocity=127)
+#     time.sleep(sps)
 # =============================================================================
-       
