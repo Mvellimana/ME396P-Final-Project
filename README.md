@@ -42,7 +42,14 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
    * The tool assumes that the musician only plays 1/8 notes. This is due to the difficulty in differentiating between sustained notes and double notes.
    * The tool is only writes music in 4/4 time signature. We have also optimized readability for 4/4. 
    - Readability Examples: If a rest comes after a note that is first or third in the measure, the tool will change the previous note from a 1/8 to a 1/4 note. If there two 1/8-rests to begin or end a measure, these will merge into one 1/4-rest. The music would still technically be accurate without edits like these, but it makes it much easier to understand for the user.
-#### 
+
+### MIDI Protocol
+#### Talking to electric instruments
+MIDI stands for Musical Instrument Digital Interface and is a standarized communication protocol that allows to play electric instruments. The most important thing to know when connecting a computer to another device is the port and the channel parameters. Port is the physical or virtual connection allowing for the serial bus communication between devices. Channel is the is the different lines of communication within a port connection. A port allows a badwidth of 16 channels to transmit independent commands to pottentiall 16 different external synthesizers. 
+#### MIDI File vs MIDI Communication
+MIDI could be easily thought as sequence of events to trigger particular sounds on a device. Thus, a MIDI file is just a way to store said sequence, and characteristics such as timbre are are specified by the device itself. The MIDI communication is the act of sending the trigers to the device in a way that is intellegible for it to capture and then create a sound. 
+
+Our program allows to play an internal sound generator predefined by pygame.mixer. Hoever thise pygame module does not contain functionality to do MIDI communication from a MIDI file to an external device. Therefore, we implemented a non-standard MIDI sequence that is then translated into MIDI communication using functionalies from pygame.midi
 
 ## How to Use: Music Player GUI
 Our goal was to create a GUI that can control the audio input and output (with play, pause, and resume buttons) and to display animated sheet music that highlights the notes while they are played.
@@ -54,12 +61,17 @@ GUI contains load, play, pause, resume and 'play generated music' buttons.
  * Play - Plays the input audio file, while displaying the sheet music that shows the notes being played.  
  * Pause - Pauses input audio file.  
  * Resume - Resume input audio file.  
- * Play Generated Music - Plays output midi music file.   
+ * Play Generated Music - Plays output midi music file.
+ 
+ * Play External Device - Connects to a external synthesizer (PC has a preinstalled synthesizer device)
+While connecting to external device please refer to the output console to specify the port and channel parameters. For PC, refer to the image below if connection to an internal synthesizer. 
+ 
+ ![image](https://user-images.githubusercontent.com/20881669/205015998-1083d98e-74d8-49ae-91e1-a43eecfa5754.png)
 
 ## Repository Structure
- * Music_Player.py - Main script to run, produces a gui to convert audio input file to sheet music and midi file. (Change directory in script to wav_to_sheet folder based on your local directory)
+ * Music_Player.py - Main script to run, produces a gui to convert audio input file to sheet music, midi file and midi communication. (Change directory in script to wav_to_sheet folder based on your local directory)
  * wav_to_sheet folder - contains all files required to run wav_to_sheet.py script, that is used by Music_Player.py scipt to produce sheet music
- * play_main.py - Scipt to run output midi file in internal device
+ * play_internal.py - Scipt to run output midi file using the pygame.mixer capabilities
  * play_external.py - Scipt to turn wav_to_sheet.py output into a midi sequence to share thorugh serial communication to an external device
  
 ## Dependancies and Packages:
