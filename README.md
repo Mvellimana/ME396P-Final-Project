@@ -69,6 +69,21 @@ While connecting to external device please refer to the output console to specif
 For PC, refer to the image below if connecting to an internal synthesizer in the absence of an external device.  
  ![image](https://user-images.githubusercontent.com/20881669/205015998-1083d98e-74d8-49ae-91e1-a43eecfa5754.png)
  
+## Limitations 
+ * Only able to recognize single notes in first 5 octaves
+ * Different processing techniques for chords/high-frequency notes (Harmonic Product Spectrum)
+ * No BPM input currently
+ * Smallest detectable note is ⅛-note (for most bpm), due to FFT Sampling
+ * Difficulty differentiating between rests and sustained notes 
+ * Due to variability in signal amplitude/note volume, our samples do not include sustained notes
+ * Music must be played to nearly perfect tempo
+ * We only optimized sheet music readability for 4/4 time signature
+ * Current GUI pause and resume function does not work concurrently with notes displayed. It only works for the audio file.   
+
+
+
+
+ 
 ## Repository Structure
 To run GUI - Download repository, and run Music_Player.py file. Tested audio input files under wav_to_sheet folder.   
  * Music_Player.py - Main script to run, produces a gui to convert audio input file to sheet music, midi file and midi communication. (Change directory in script to wav_to_sheet folder based on your local directory)
