@@ -3,21 +3,25 @@
 """
 Created on Tue Nov 15 19:52:11 2022
 
-@author: Mai
+@author: Mai,
 """
+import threading, time
 
 from pathlib import Path
+from pygame import mixer
 from wav_to_sheet.wav_to_sheet import WavToSheet
 import play_external 
-from play_main import *
+from play_internal import *
+
 from tkinter import *
-from pygame import mixer
 from tkinter import Label
 from tkinter import Button
 from tkinter import filedialog
+
 from PIL import ImageTk, Image
-from pdf2image import convert_from_path
 import os
+
+from pdf2image import convert_from_path
 import librosa
 
 os.chdir(Path.cwd())
@@ -285,22 +289,28 @@ def play_midi():
 def external_device():
     global str_notes
     
+    if str_notes == []:
+        print("Please upload a song to analyze, other wise the default will be played")
+         
     ext_midi = play_external.MidiSequence()
     ext_midi.notes2sequence(notes_str = str_notes)
-    sequence=ext_midi.getSequence()
-    #print(a)
-
-    Synth = play_external.connectSynth()
-    smallest_subdivision = 8
-    bpm = 120; bps = bpm/60; sps = bps/smallest_subdivision
-    for i in range(len(sequence[0])):
-        (NoteON,NoteOFF) = ext_midi.play_external.getNote(i)
-        printMessage(NoteON,NoteOFF) 
-        if NoteON:
-            Synth.note_on(note=NoteON, velocity=127)
-        if NoteOFF:
-            Synth.note_off(note=NoteOFF, velocity=127)
-        time.sleep(sps)
+    sequence = ext_midi.getSequence()
+    
+    def playSynth():
+        Synth = play_external.connectSynth()
+        smallest_subdivision = 8
+        bpm = 120; bps = bpm/60; sps = bps/smallest_subdivision
+        for i in range(len(sequence[0])):
+            (NoteON,NoteOFF) = ext_midi.getNote(i)
+            play_external.printMessage(NoteON,NoteOFF) 
+            if NoteON:
+                Synth.note_on(note=NoteON, velocity=127)
+            if NoteOFF:
+                Synth.note_off(note=NoteOFF, velocity=127)
+            time.sleep(sps)
+        play_external.disconnectSynth()
+    
+    threading.Thread(target=playSynth).start()
     
 # MAIN
 # ADD ADDITIONAL GLOBAL VARIABLES
