@@ -189,13 +189,13 @@ def WavToSheet(filename):
     str_notes = ' '.join(np.array(notes_to_play))
     
     # .txt string inputs for lilypond command
-    with open("lilypond_string_input_1.txt","r") as f:
+    with open("wav_to_sheet/lilypond_string_input_1.txt","r") as f:
         str1 = f.read()
-    with open("lilypond_string_input_2.txt","r") as f:
+    with open("wav_to_sheet/lilypond_string_input_2.txt","r") as f:
         str2 = f.read()
-    with open("lilypond_string_input_3.txt","r") as f:
+    with open("wav_to_sheet/lilypond_string_input_3.txt","r") as f:
         str3 = f.read()
-    with open("lilypond_string_input_4.txt","r") as f:
+    with open("wav_to_sheet/lilypond_string_input_4.txt","r") as f:
         str4 = f.read()
         
     bar = str1 + song_title + str2 + str_notes + str3 + str(bpm) + str4
