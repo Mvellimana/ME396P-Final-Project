@@ -3,7 +3,7 @@ _**A simple music transcriptor and reproducer**_
 ![image](https://user-images.githubusercontent.com/20881669/204862511-7b64966e-dd5b-43d5-8e9f-26f672b4a755.png)
 
 ### Background: Representing Music Visually 
-Although music is a sonic phenomena, there are multiple ways to suncintly depict it graphically. Sheet music is one of them and it allows to represent the arrangement of pitches over time in staff notation. It uses an array of symbols and codes to precisely (but not necesarly intuitively) convey the fundamental elements of a piece of music, namely, pitch, rythm , dynamics, and timbre.
+Although music is a sonic phenomena, there are multiple ways to suncintly depict it graphically. Sheet music is one of them and it allows to represent the arrangement of pitches over time in staff notation. Such notation uses an array of symbols and codes to precisely (but not necesarly intuitively) convey fundamental elements of a piece of music, namely, pitch, rythm , dynamics, and timbre.
 
 ![image](https://user-images.githubusercontent.com/20881669/199405616-928f35ca-6f92-4c2d-901e-33b310f2c60a.png)
 
@@ -14,14 +14,17 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 #### 1. Install the Lily music engraving environment 
   * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instructions on the [Lily Pond website](https://lilypond.org/download.html).
    * IMPORTANT: If you are using a Mac or PC, be sure to follow the instructions under "Running on the command-line". This is on the webpage after you select your operating system when downloading.
-#### 2. Install the necesary external python packages, more information on their respective documenation websites (listed on our references)
+#### 2. Install the necesary external python packages, more information on their respective documenation websites (listed on Dependencies & Packages)
   * Package for communicating with the Lilypond application
     > pip install mingus
   * Tool and library for manipulating LilyPond files 
     > pip install python-ly
-  * Package for creating MIDI format files 
-    > pip install MIDIUtil
-  
+  * Package for pdf manipulation 
+    > pip install pdf2image
+  * Package for audio manipulation
+    > pip install librosa
+   
+   For a complete list of all dependancies please check our reference section. 
 
 ## How it Works
 ### Signal Processing: Note Recognition and Music Transcription from an Audio File
@@ -40,9 +43,6 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
    * The tool is only writes music in 4/4 time signature. We have also optimized readability for 4/4. 
    - Readability Examples: If a rest comes after a note that is first or third in the measure, the tool will change the previous note from a 1/8 to a 1/4 note. If there two 1/8-rests to begin or end a measure, these will merge into one 1/4-rest. The music would still technically be accurate without edits like these, but it makes it much easier to understand for the user.
 #### 
-
-### Recreating and Playing Your Music from Your Computer or MIDI Instrument
-#### MIDI Communication
 
 ## How to Use: Music Player GUI
 Our goal was to create a GUI that can control the audio input and output (with play, pause, and resume buttons) and to display animated sheet music that highlights the notes while they are played.
@@ -65,8 +65,8 @@ GUI contains load, play, pause, resume and 'play generated music' buttons.
 ## Dependancies and Packages:
 Read Audio stream - SciPy.io  
 Detect notes - SciPy.signal, numpy  
-Convert to music notation - SciPy.signal, Lilypond  
-Creating a user interface - [Tkinter](https://docs.python.org/3/library/tkinter.html), [Pygame](https://www.pygame.org/wiki/about), Librosa, PIL, pdf2image  
+Convert to music notation - SciPy.signal, Lilypond, [mingus](https://bspaans.github.io/python-mingus/)  
+Creating a user interface and file manipulation - [Tkinter](https://docs.python.org/3/library/tkinter.html), [Pygame](https://www.pygame.org/wiki/about), [Librosa](https://librosa.org/doc/latest/index.html), PIL, [pdf2image](https://pypi.org/project/pdf2image/)  
 Communicating to external device - [Pygame.midi](https://www.pygame.org/docs/ref/midi.html)
  
 ##  References
