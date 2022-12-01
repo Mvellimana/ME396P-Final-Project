@@ -69,7 +69,7 @@ GUI contains load, play, pause, resume and 'play generated music' buttons.
 While connecting to external device please refer to the output console to specify the port and channel parameters. Yout will to specify the port to which your device appears and its channel (the channel can be preconfigured on your external devices).
  ![image](https://user-images.githubusercontent.com/20881669/205016541-c71e1aa0-59e5-4477-ab28-00b3b29f7d25.png)
 
-For PC, refer to the image below if connection to an internal synthesizer in the absence of an external device.  
+For PC, refer to the image below if connecting to an internal synthesizer in the absence of an external device.  
  ![image](https://user-images.githubusercontent.com/20881669/205015998-1083d98e-74d8-49ae-91e1-a43eecfa5754.png)
  
 ## Repository Structure
