@@ -55,7 +55,7 @@ Our program allows to play an internal sound generator predefined by pygame.mixe
 Our goal was to create a GUI that can control the audio input and output (with play, pause, and resume buttons) and to display animated sheet music that highlights the notes while they are played.
 
 ### Music Player GUI Functionalities 
-![GUI Image](Images/GUI.png)  
+ 
 GUI contains load, play, pause, resume and 'play generated music' buttons.  
  * Load - Uploads and processes audio (.wav file) input. This opens a dialog box to select desired input audio wav file. Once file is selected, the tool converts it to sheet music and a MIDI file.  
  * Play - Plays the input audio file, while displaying the sheet music that shows the notes being played.  
