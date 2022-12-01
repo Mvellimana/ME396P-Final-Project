@@ -60,7 +60,7 @@ GUI contains load, play, pause, resume and 'play generated music' buttons.
  * Music_Player.py - Main script to run, produces a gui to convert audio input file to sheet music and midi file. (Change directory in script to wav_to_sheet folder based on your local directory)
  * wav_to_sheet folder - contains all files required to run wav_to_sheet.py script, that is used by Music_Player.py scipt to produce sheet music
  * play_main.py - Scipt to run output midi file in internal device
- * play_external.py - Scipt to run output midi file in external device
+ * play_external.py - Scipt to turn wav_to_sheet.py output into a midi sequence to share thorugh serial communication to an external device
  
 ## Dependancies and Packages:
 Read Audio stream - SciPy.io  
