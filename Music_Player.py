@@ -6,7 +6,9 @@ Created on Tue Nov 15 19:52:11 2022
 @author: Mai
 """
 
-from wav_to_sheet import WavToSheet
+from pathlib import Path
+from wav_to_sheet.wav_to_sheet import WavToSheet
+import play_external 
 from play_main import *
 from tkinter import *
 from pygame import mixer
@@ -17,12 +19,8 @@ from PIL import ImageTk, Image
 from pdf2image import convert_from_path
 import os
 import librosa
-import time
-from midiutil import MIDIFile
-import pygame.midi
-#import time
 
-os.chdir('/Users/Mai/Documents/ME396P/Final Project')
+os.chdir(Path.cwd())
 #setting colors
 col1 = "#ffffff"
 col2 = "#333333"
@@ -157,11 +155,10 @@ def upload():
     '''
     Converts audio to sheet music & crops sheet music to separate images
     '''
-    global music_file, audio_length, midi_file,total_lines, bar
-    running_song['text'] = 'Loading'
-    
+    global music_file, audio_length, midi_file,total_lines, bar,str_notes
     
     music_file = filedialog.askopenfilename()
+    running_song['text'] = 'Loading'
     str_notes, total_lines, seconds_per_line, note_dict, bar, bpm = WavToSheet(music_file)
     
     
@@ -192,7 +189,7 @@ def upload():
         im2.save('crop_' + str(i)+'.png')
         
     running_song['text'] = 'Loaded'
-    audio_length = librosa.get_duration(filename=music_file.split('/')[-1])
+    audio_length = librosa.get_duration(filename=music_file.split('/')[-2]+'/'+music_file.split('/')[-1])
     midi_file = Sheet_music.split('.pdf')[0]+'.midi' 
     print(midi_file)
     print(total_lines)
@@ -281,11 +278,29 @@ def resume():
     moving = True
     
 def play_midi():
-    global midi_file
-    #global running_song
+    global midi_file, running_song
     playMidiFile(midi_file)
     running_song['text'] = midi_file
 
+def external_device():
+    global str_notes
+    
+    ext_midi = play_external.MidiSequence()
+    ext_midi.notes2sequence(notes_str = str_notes)
+    sequence=ext_midi.getSequence()
+    #print(a)
+
+    Synth = play_external.connectSynth()
+    smallest_subdivision = 8
+    bpm = 120; bps = bpm/60; sps = bps/smallest_subdivision
+    for i in range(len(sequence[0])):
+        (NoteON,NoteOFF) = ext_midi.play_external.getNote(i)
+        printMessage(NoteON,NoteOFF) 
+        if NoteON:
+            Synth.note_on(note=NoteON, velocity=127)
+        if NoteOFF:
+            Synth.note_off(note=NoteOFF, velocity=127)
+        time.sleep(sps)
     
 # MAIN
 # ADD ADDITIONAL GLOBAL VARIABLES
@@ -302,6 +317,7 @@ i = 0
 audio_length = 0
 midi_file = ''
 total_lines = 0
+str_notes = []
 
 # insert BAR canvas object INTO FRAME
 bar = ''
@@ -337,7 +353,10 @@ Sheet_frame = Label(top_frame, height = 200)
 Sheet_frame.place(x = 1500/2, y = 100, anchor ='center') 
 
 Play_to_generated_midi = Button(middle_frame, text = ('Play Generated Midi'), font=("Arial",30),fg = 'black', command = play_midi)
-Play_to_generated_midi.place(x = 1500/2, y = 50, anchor ='center')
+Play_to_generated_midi.place(x = 1500/4, y = 50, anchor ='center')
+
+Play_to_external_device = Button(middle_frame, text = ('Play to External Device'+'\n'+'(external device req)'), font=("Arial",30),fg = 'black', command = external_device)
+Play_to_external_device.place(x = (1500/4)*3, y = 50, anchor ='center')
 
 running_song = Label(bottom_frame_text,text ='Load',font=("Arial",25) ,fg = 'black')
 running_song.place(x = (1500/2), y = 20, anchor ='center')
