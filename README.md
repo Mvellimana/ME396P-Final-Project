@@ -63,11 +63,15 @@ GUI contains load, play, pause, resume and 'play generated music' buttons.
  * Resume - Resume input audio file.  
  * Play Generated Music - Plays output midi music file.
  
- * Play External Device - Connects to a external synthesizer (PC has a preinstalled synthesizer device)
-While connecting to external device please refer to the output console to specify the port and channel parameters. For PC, refer to the image below if connection to an internal synthesizer. 
  
- ![image](https://user-images.githubusercontent.com/20881669/205015998-1083d98e-74d8-49ae-91e1-a43eecfa5754.png)
+ * Play External Device - Connects to a external synthesizer (PC has a preinstalled synthesizer device)
+ * 
+While connecting to external device please refer to the output console to specify the port and channel parameters. Yout will to specify the port to which your device appears and its channel (the channel can be preconfigured on your external devices).
+ ![image](https://user-images.githubusercontent.com/20881669/205016541-c71e1aa0-59e5-4477-ab28-00b3b29f7d25.png)
 
+For PC, refer to the image below if connection to an internal synthesizer in the absence of an external device.  
+ ![image](https://user-images.githubusercontent.com/20881669/205015998-1083d98e-74d8-49ae-91e1-a43eecfa5754.png)
+ 
 ## Repository Structure
  * Music_Player.py - Main script to run, produces a gui to convert audio input file to sheet music, midi file and midi communication. (Change directory in script to wav_to_sheet folder based on your local directory)
  * wav_to_sheet folder - contains all files required to run wav_to_sheet.py script, that is used by Music_Player.py scipt to produce sheet music
