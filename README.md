@@ -62,6 +62,7 @@ GUI contains load, play, pause, resume and 'play generated music' buttons.
  * Pause - Pauses input audio file.  
  * Resume - Resume input audio file.  
  * Play Generated Music - Plays output midi music file.
+ * Play to External device - Midi communication with external synthesizer (midi player required for it to work)
  
  
  * Play External Device - Connects to a external synthesizer (PC has a preinstalled synthesizer device)
