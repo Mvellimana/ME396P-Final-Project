@@ -74,15 +74,19 @@ While connecting to external device please refer to the output console to specif
 
 For PC, refer to the image below if connecting to an internal synthesizer in the absence of an external device.  
  ![image](https://user-images.githubusercontent.com/20881669/205015998-1083d98e-74d8-49ae-91e1-a43eecfa5754.png)
- 
+<br/>
+<br/>
+<br/>
 ## **Instructions**
- **1. Run our main script in your editor, 'Music_Player.py'. A new window with the GUI will open. 
- **2. Click on the Upload button, and select a .wav audio file that you would like to use (we have included 2 sample audio files - 'MarioGuitar.wav' and 'MaryHadALittleLamb.wav'). After the file is uploaded and the processing is complete, the dialog box will read 'Loaded'.
- **3. Once the audio is loaded, you can press the Play button. This will start playing your recorded audio, and sheet music will appear in the window. As the music plays, you will see a cursor run through the sheet music as each note is played. You also have the option to pause and resume the audio (however, this feature still has bugs!).
- **4. If you'd like, you can play a digital version of your music that the tool produced. For this feature, click the 'Play Generated Midi' button. You may also pause and resume this audio.
- **5. If you'd like, you can play a reproduced version of your uploaded music to an external MIDI instrument (synthesizer, electronic drums, digital guitars, etc.). If you are running the tool on a PC, you can use a built-in Windows MIDI instrument (more details in previous section).
- **6. If you'd like to try another song, please close the window and re-run the program (sorry - couldn't quite fix this bug!).
- 
+ 1. Run our main script in your editor, 'Music_Player.py'. A new window with the GUI will open. 
+ 2. Click on the Upload button, and select a .wav audio file that you would like to use (we have included 2 sample audio files - 'MarioGuitar.wav' and 'MaryHadALittleLamb.wav'). After the file is uploaded and the processing is complete, the dialog box will read 'Loaded'.
+ 3. Once the audio is loaded, you can press the Play button. This will start playing your recorded audio, and sheet music will appear in the window. As the music plays, you will see a cursor run through the sheet music as each note is played. You also have the option to pause and resume the audio (however, this feature still has bugs!).
+ 4. If you'd like, you can play a digital version of your music that the tool produced. For this feature, click the 'Play Generated Midi' button. You may also pause and resume this audio.
+ 5. If you'd like, you can play a reproduced version of your uploaded music to an external MIDI instrument (synthesizer, electronic drums, digital guitars, etc.). If you are running the tool on a PC, you can use a built-in Windows MIDI instrument (more details in previous section).
+ 6. If you'd like to try another song, please close the window and re-run the program (sorry - couldn't quite fix this bug!).
+<br/>
+<br/>
+<br/>
 ## Limitations 
  * The tool assumes that the musician only plays 1/8 notes. This is due to the difficulty in differentiating between sustained notes and double notes.
  * The tool is only writes music in 4/4 time signature. We have also optimized readability for 4/4. 
