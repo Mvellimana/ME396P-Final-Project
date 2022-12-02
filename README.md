@@ -60,7 +60,7 @@ GUI contains load, play, pause, resume,'play generated music' and 'play to exter
  * Load - Uploads and processes audio (.wav file) input. This opens a dialog box to select desired input audio wav file. Once file is selected, the tool converts it to sheet music and a MIDI file.  
  * Play - Plays the input audio file, while displaying the sheet music that shows the notes being played.  
  * Pause - Pauses input audio file.  
- * Resume - Resume input audio file.  
+ * Resume - Resumes input audio file.  
  * Play Generated Music - Plays output midi music file.
  * Play to External Device - Connects to a external synthesizer (PC has a preinstalled synthesizer device)   
 While connecting to external device please refer to the output console to specify the port and channel parameters. Yout will to specify the port to which your device appears and its channel (the channel can be preconfigured on your external devices).
