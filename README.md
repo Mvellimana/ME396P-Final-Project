@@ -1,5 +1,6 @@
 # SynMusic
 _**A simple music transcriptor and reproducer**_
+_**Instructions are near the bottom of this page!**_
 ![image](https://user-images.githubusercontent.com/20881669/204862511-7b64966e-dd5b-43d5-8e9f-26f672b4a755.png)
 
 ### Background: Representing Music Visually 
@@ -10,7 +11,7 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 ![Simple Music Notation Elements](https://user-images.githubusercontent.com/20881669/199398114-b406ef6f-548c-4a37-99ca-99a2b33f67b5.png)
 
 
-## What You Need Before Using the Tool
+## What You Need Before Using
 #### 1. Install the Lilypond music engraving environment 
   * Lilypond is a sheet music compiler and is needed to visually display music in our program. Follow the instructions on the [Lily Pond website](https://lilypond.org/download.html). Be sure to complete installation and follow setup instructions.
   * It is advised to open the application and try out their provided sample! 
@@ -84,7 +85,6 @@ For PC, refer to the image below if connecting to an internal synthesizer in the
  4. If you'd like, you can play a digital version of your music that the tool produced. For this feature, click the 'Play Generated Midi' button. You may also pause and resume this audio.
  5. If you'd like, you can play a reproduced version of your uploaded music to an external MIDI instrument (synthesizer, electronic drums, digital guitars, etc.). If you are running the tool on a PC, you can use a built-in Windows MIDI instrument (more details in previous section).
  6. If you'd like to try another song, please close the window and re-run the program (sorry - couldn't quite fix this bug!).
-<br/>
 <br/>
 
 ## Limitations 
