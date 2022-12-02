@@ -63,7 +63,7 @@ GUI contains load, play, pause, resume,'play generated music' and 'play to exter
  * Resume - Resumes input audio file.  
  * Play Generated Music - Plays output midi music file.
  * Play to External Device - Connects to a external synthesizer (PC has a preinstalled synthesizer device)   
-While connecting to external device please refer to the output console to specify the port and channel parameters. Yout will to specify the port to which your device appears and its channel (the channel can be preconfigured on your external devices).
+While connecting to external device please refer to the output console to specify the port and channel parameters. You will to specify the port to which your device appears and its channel (the channel can be preconfigured on your external devices).
  ![image](https://user-images.githubusercontent.com/20881669/205016541-c71e1aa0-59e5-4477-ab28-00b3b29f7d25.png)
 
 For PC, refer to the image below if connecting to an internal synthesizer in the absence of an external device.  
