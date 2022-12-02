@@ -283,8 +283,11 @@ def resume():
     
 def play_midi():
     global midi_file, running_song
-    playMidiFile(midi_file)
-    running_song['text'] = midi_file
+    if os.path.isfile(midi_file):
+        playMidiFile(midi_file)
+        running_song['text'] = midi_file
+    elif os.path.isfile(midi_file[:-1]):
+        playMidiFile(midi_file[:-1])
 
 def external_device():
     global str_notes
