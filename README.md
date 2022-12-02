@@ -36,8 +36,7 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
  * The time interval used for the spectrogram is set to the time length of a 1/8-note. Using a smaller time window lowers the resolution of the FFT, and makes it difficult to accurately identify notes.
  * To identify when a note is played (versus when there is no note played), we compared the magnitude of each time interval to the maximum magnitude (loudest note) in the audio file. After testing, we settled on a threshold, in decibels, to determine if a note was being played in that interval.
 
-
-### Transcription
+#### Transcription
  * To produce the sheet music, we are using Lilypond. We are sending commands to the application after we process the audio, and Lilypond uses these commands to create a sheet music PDF and MIDI file.
 
 ### MIDI Protocol
@@ -66,7 +65,7 @@ While connecting to external device please refer to the output console to specif
 For PC, refer to the image below if connecting to an internal synthesizer in the absence of an external device.  
  ![image](https://user-images.githubusercontent.com/20881669/205015998-1083d98e-74d8-49ae-91e1-a43eecfa5754.png)
  
-## Instructions
+## **Instructions**
  1. Run our main script in your editor, 'Music_Player.py'. A new window with the GUI will open. 
  2. Click on the Upload button, and select a .wav audio file that you would like to use (we have included 2 sample audio files - 'MarioGuitar.wav' and 'MaryHadALittleLamb.wav'). After the file is uploaded and the processing is complete, the dialog box will read 'Loaded'.
  3. Once the audio is loaded, you can press the Play button. This will start playing your recorded audio, and sheet music will appear in the window. As the music plays, you will see a cursor run through the sheet music as each note is played. You also have the option to pause and resume the audio (however, this feature still has bugs!).
