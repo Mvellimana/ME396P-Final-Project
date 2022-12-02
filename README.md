@@ -16,7 +16,7 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
   * It is advised to open the application and try out their provided sample! 
     * Mac: Open Lilypond, and save the file as instructed on the text editor. Then, select Compile > Typeset file. This should generate a PDF of the provided music notes.
     * PC: Open Lilypond, and save the file as instructed on the text editor. Then, right click the .ly file on your desktop, and generate PDF.
-  * **IMPORTANT**: If you are using a Mac or PC, be sure to follow the instructions under "Running on the command-line". This is on the webpage after you select your operating system when downloading.
+  * **IMPORTANT**: If you are using a Mac or PC, **you need** to follow the instructions under "Running on the command-line". This is on the webpage after you select your operating system when downloading.
     * If you are using Spyder on Mac, you will likely need to repeat these steps for you anaconda bin directory. This bin directory should already exist, and if so, you will only need to repeat steps 2-5. It is usually located at a file path as such:
      > /Users/**your_username**/opt/anaconda3/bin
       **or**
