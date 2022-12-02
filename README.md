@@ -32,18 +32,13 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 ### Signal Processing: Note Recognition and Music Transcription from an Audio File
 #### Pitch and Octave range
  * To identify the pitch of the notes, we are taking a spectrogram of the audio sample. This will divide the signal into a set of time intervals, and will generate the frequency spectrum for each interval. We can then find the maximum magnitude and corresponding frequency for each time interval. Lastly, we can map these frequencies with a musical note.
- * Limitations:
-   - Our tool only transcribes in treble clef notation.
-   - Our tool can only identify single notes in the first 5 octaves. When trying to identify notes in the higher octaves, we were running into issues with harmonics. More advanced processing is required to analyze high-pitch notes and chords.
 #### Rythmic Patterns
- * The time interval used for the spectrogram is set to the time legnth of a 1/8-note. Using a smaller time window lowers the resolution of the FFT, and makes it difficult to accurately identify notes.
- * When testing, we only used .wav files with a sampling rate of 44.1 kHz (standard for .wav files).
+ * The time interval used for the spectrogram is set to the time length of a 1/8-note. Using a smaller time window lowers the resolution of the FFT, and makes it difficult to accurately identify notes.
  * To identify when a note is played (versus when there is no note played), we compared the magnitude of each time interval to the maximum magnitude (loudest note) in the audio file. After testing, we settled on a threshold, in decibels, to determine if a note was being played in that interval.
- * We assumed that the tempo of the audio is 120 BPM. However, BPM input is a feasible feature that we could include in the GUI, if we'd like to upload music played at a different tempo.
- * Limitations:
-   * The tool assumes that the musician only plays 1/8 notes. This is due to the difficulty in differentiating between sustained notes and double notes.
-   * The tool is only writes music in 4/4 time signature. We have also optimized readability for 4/4. 
-   - Readability Examples: If a rest comes after a note that is first or third in the measure, the tool will change the previous note from a 1/8 to a 1/4 note. If there two 1/8-rests to begin or end a measure, these will merge into one 1/4-rest. The music would still technically be accurate without edits like these, but it makes it much easier to understand for the user.
+
+
+### Transcription
+ * To produce the sheet music, we are using Lilypond. We are sending commands to the application after we process the audio, and Lilypond uses these commands to create a sheet music PDF and MIDI file.
 
 ### MIDI Protocol
 #### Talking to electric instruments
@@ -53,10 +48,10 @@ MIDI could be easily thought as sequence of events to trigger particular sounds 
 
 Our program allows to play an internal sound generator predefined by pygame.mixer. Hoever thise pygame module does not contain functionality to do MIDI communication from a MIDI file to an external device. Therefore, we implemented a non-standard MIDI sequence that is then translated into MIDI communication using functionalies from pygame.midi
 
-## How to Use: Music Player GUI
+
+### Music Player GUI Functionality
 Our goal was to create a GUI that can control the audio input and output (with play, pause, and resume buttons) and to display animated sheet music that highlights the notes while they are played.
 
-### Music Player GUI Functionalities 
 ![GUI Image](Images/GUI.png) 
 GUI contains load, play, pause, resume,'play generated music' and 'play to external device' buttons.  
  * Load - Uploads and processes audio (.wav file) input. This opens a dialog box to select desired input audio wav file. Once file is selected, the tool converts it to sheet music and a MIDI file.  
@@ -71,20 +66,24 @@ While connecting to external device please refer to the output console to specif
 For PC, refer to the image below if connecting to an internal synthesizer in the absence of an external device.  
  ![image](https://user-images.githubusercontent.com/20881669/205015998-1083d98e-74d8-49ae-91e1-a43eecfa5754.png)
  
+## Instructions
+ 1. Run our main script in your editor, 'Music_Player.py'. A new window with the GUI will open. 
+ 2. Click on the Upload button, and select a .wav audio file that you would like to use (we have included 2 sample audio files - 'MarioGuitar.wav' and 'MaryHadALittleLamb.wav'). After the file is uploaded and the processing is complete, the dialog box will read 'Loaded'.
+ 3. Once the audio is loaded, you can press the Play button. This will start playing your recorded audio, and sheet music will appear in the window. As the music plays, you will see a cursor run through the sheet music as each note is played. You also have the option to pause and resume the audio (however, this feature still has bugs!).
+ 4. If you'd like, you can play a digital version of your music that the tool produced. For this feature, click the 'Play Generated Midi' button. You may also pause and resume this audio.
+ 5. If you'd like, you can play a reproduced version of your uploaded music to an external MIDI instrument (synthesizer, electronic drums, digital guitars, etc.). If you are running the tool on a PC, you can use a built-in Windows MIDI instrument (more details in previous section).
+ 6. If you'd like to try another song, please close the window and re-run the program (sorry - couldn't quite fix this bug!).
+ 
 ## Limitations 
- * Only able to recognize single notes in first 5 octaves
- * Different processing techniques for chords/high-frequency notes (Harmonic Product Spectrum)
- * No BPM input currently
- * Smallest detectable note is ⅛-note (for most bpm), due to FFT Sampling
- * Difficulty differentiating between rests and sustained notes 
- * Due to variability in signal amplitude/note volume, our samples do not include sustained notes
- * Music must be played to nearly perfect tempo
- * We only optimized sheet music readability for 4/4 time signature
- * Current GUI pause and resume function does not work concurrently with notes displayed. It only works for the audio file.   
-
-
-
-
+ * The tool assumes that the musician only plays 1/8 notes. This is due to the difficulty in differentiating between sustained notes and double notes.
+ * The tool is only writes music in 4/4 time signature. We have also optimized readability for 4/4. 
+   * Readability Examples: If a rest comes after a note that is first or third in the measure, the tool will change the previous note from a 1/8 to a 1/4 note. If there two 1/8-rests to begin or end a measure, these will merge into one 1/4-rest. The music would still technically be accurate without edits like these, but it makes it much easier to understand for the user.
+ * When testing, we only used .wav files with a sampling rate of 44.1 kHz (standard for .wav files).
+ * Our tool only transcribes in treble clef notation.
+ * Our tool can only identify single notes in the first 5 octaves. When trying to identify notes in the higher octaves, we were running into issues with harmonics. More advanced processing is required to analyze high-pitch notes and chords.
+ * We assumed that the tempo of the audio is 120 BPM. However, BPM input is a feasible feature that we could include in the GUI, if we'd like to upload music played at a different tempo.
+ * The performing musician must be talented! If the musician wavers off tempo, it will negatively affect the results.
+ * Our pause/resume functionality for the recorded audio is not working correctly. Also, if you would like to process a different audio sample, you must close and re-openthe application.
  
 ## Repository Structure
 To run GUI - Download repository, and run Music_Player.py file. Tested audio input files under wav_to_sheet folder.   
@@ -93,7 +92,7 @@ To run GUI - Download repository, and run Music_Player.py file. Tested audio inp
  * play_internal.py - Scipt to run output midi file using the pygame.mixer capabilities
  * play_external.py - Scipt to turn wav_to_sheet.py output into a midi sequence to share thorugh serial communication to an external device
  
-## Dependancies and Packages:
+## Dependencies and Packages:
 Read Audio stream - SciPy.io  
 Detect notes - SciPy.signal, numpy  
 Convert to music notation - SciPy.signal, Lilypond, [mingus](https://bspaans.github.io/python-mingus/)  
