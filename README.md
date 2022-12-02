@@ -86,7 +86,6 @@ For PC, refer to the image below if connecting to an internal synthesizer in the
  6. If you'd like to try another song, please close the window and re-run the program (sorry - couldn't quite fix this bug!).
 <br/>
 <br/>
-<br/>
 
 ## Limitations 
  * The tool assumes that the musician only plays 1/8 notes. This is due to the difficulty in differentiating between sustained notes and double notes.
