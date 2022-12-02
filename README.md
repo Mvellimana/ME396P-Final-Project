@@ -56,7 +56,7 @@ Our goal was to create a GUI that can control the audio input and output (with p
 
 ### Music Player GUI Functionalities 
 ![GUI Image](Images/GUI.png) 
-GUI contains load, play, pause, resume and 'play generated music' buttons.  
+GUI contains load, play, pause, resume,'play generated music' and 'play to external device' buttons.  
  * Load - Uploads and processes audio (.wav file) input. This opens a dialog box to select desired input audio wav file. Once file is selected, the tool converts it to sheet music and a MIDI file.  
  * Play - Plays the input audio file, while displaying the sheet music that shows the notes being played.  
  * Pause - Pauses input audio file.  
