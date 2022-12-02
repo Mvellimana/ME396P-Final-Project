@@ -1,5 +1,5 @@
 # SynMusic
-_**A simple music transcriptor and reproducer.**_<br/>
+_A simple music transcriptor and reproducer._<br/>
 _**Instructions are near the bottom of this page!**_
 ![image](https://user-images.githubusercontent.com/20881669/204862511-7b64966e-dd5b-43d5-8e9f-26f672b4a755.png)
 
