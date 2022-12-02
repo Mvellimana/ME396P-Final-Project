@@ -77,7 +77,7 @@ For PC, refer to the image below if connecting to an internal synthesizer in the
 <br/>
 <br/>
 <br/>
-## **Instructions**
+## **INSTRUCTIONS!!!!!**
  1. Run our main script in your editor, 'Music_Player.py'. A new window with the GUI will open. 
  2. Click on the Upload button, and select a .wav audio file that you would like to use (we have included 2 sample audio files - 'MarioGuitar.wav' and 'MaryHadALittleLamb.wav'). After the file is uploaded and the processing is complete, the dialog box will read 'Loaded'.
  3. Once the audio is loaded, you can press the Play button. This will start playing your recorded audio, and sheet music will appear in the window. As the music plays, you will see a cursor run through the sheet music as each note is played. You also have the option to pause and resume the audio (however, this feature still has bugs!).
