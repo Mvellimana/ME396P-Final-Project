@@ -86,7 +86,7 @@ For PC, refer to the image below if connecting to an internal synthesizer in the
  
 ## Repository Structure
 To run GUI - Download repository, and run Music_Player.py file. Tested audio input files under wav_to_sheet folder.   
- * Music_Player.py - Main script to run, produces a gui to convert audio input file to sheet music, midi file and midi communication. (Change directory in script to wav_to_sheet folder based on your local directory)
+ * Music_Player.py - Main script to run, produces a gui to convert audio input file to sheet music, midi file and midi communication. 
  * wav_to_sheet folder - contains all files required to run wav_to_sheet.py script, that is used by Music_Player.py scipt to produce sheet music
  * play_internal.py - Scipt to run output midi file using the pygame.mixer capabilities
  * play_external.py - Scipt to turn wav_to_sheet.py output into a midi sequence to share thorugh serial communication to an external device
