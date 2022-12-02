@@ -87,6 +87,7 @@ For PC, refer to the image below if connecting to an internal synthesizer in the
 <br/>
 <br/>
 <br/>
+
 ## Limitations 
  * The tool assumes that the musician only plays 1/8 notes. This is due to the difficulty in differentiating between sustained notes and double notes.
  * The tool is only writes music in 4/4 time signature. We have also optimized readability for 4/4. 
