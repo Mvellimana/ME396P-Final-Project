@@ -23,6 +23,8 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
     > pip install pdf2image
   * Package for audio manipulation
     > pip install librosa
+  * Package for GUI graphics
+    > pip install pygame
    
    For a complete list of all dependancies please check our reference section. 
 
