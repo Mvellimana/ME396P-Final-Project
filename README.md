@@ -12,8 +12,19 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
 
 ## What You Need Before Using the Tool
 #### 1. Install the Lily music engraving environment 
-  * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instructions on the [Lily Pond website](https://lilypond.org/download.html).
-   * IMPORTANT: If you are using a Mac or PC, be sure to follow the instructions under "Running on the command-line". This is on the webpage after you select your operating system when downloading.
+  * Lily Pond is a sheet music compiler and is needed to visually display music in our program. Follow the instructions on the [Lily Pond website](https://lilypond.org/download.html). Be sure to complete installation and follow setup instructions.
+  * It is advised to open the application and try out their provided sample! 
+    * Mac: Open Lilypond, and save the file as instructed on the text editor. Then, select Compile > Typeset file. This should generate a PDF of the provided music notes.
+    * PC: Open Lilypond, and save the file as instructed on the text editor. Then, right click the .ly file on your desktop, and generate PDF.
+  * **IMPORTANT**: If you are using a Mac or PC, be sure to follow the instructions under "Running on the command-line". This is on the webpage after you select your operating system when downloading.
+    * If you are using Spyder on Mac, you will likely need to repeat these steps for you anaconda bin directory. This bin directory should already exist, and if so, you will only need to repeat steps 2-5. It is usually located at a file path as such:
+     > /Users/<username>/opt/anaconda3/bin
+      or
+     > /Users/<username>/opt/anaconda3/condabin
+  * When running the Music Player application:
+    * If using a PC, you may need to run your Python editor as administrator.
+    * If if using a Mac, you may need to grant Lilypond permission to run. You can find this in System Preferences > Security & Privacy > General > Allow Apps Downloaded from: "App Store and Identified Developers". You may also need to unblock Lilypond under this selection, after the first time you try to run the application.
+     * 
 #### 2. Install the necesary external python packages, more information on their respective documenation websites (listed on Dependencies & Packages)
   * Package for communicating with the Lilypond application
     > pip install mingus
@@ -26,7 +37,7 @@ Although music is a sonic phenomena, there are multiple ways to suncintly depict
   * Package for GUI graphics
     > pip install pygame
    
-   For a complete list of all dependancies please check our reference section. 
+   For a complete list of all dependencies please check our reference section. 
 
 ## How it Works
 ### Signal Processing: Note Recognition and Music Transcription from an Audio File
